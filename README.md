@@ -1,117 +1,130 @@
-Project Horizon
-Open-Source Zero Trust Security & Operations Framework
-🔭 1. Vision
+# 🌌 Project Horizon
+### *An Open-Source Zero Trust Security & Operations Framework*
 
-Project Horizon is my independent research initiative to design and implement a unified Zero Trust security architecture entirely with open-source and free-tier technologies.
-The project explores how a modular, cloud-agnostic security ecosystem can deliver end-to-end protection, observability, and automation across identity, data, infrastructure, and analytics layers — without relying on commercial platforms.
+---
 
-Aether represents a personal vision:
+## 📖 Overview
 
-“To demonstrate that enterprise-grade security can be achieved through thoughtful architecture, community-driven tools, and deep technical integration.”
+**Project Horizon** is an independently developed research initiative demonstrating how **enterprise-grade Zero Trust Architecture (ZTA)** can be implemented using **only open-source and free-tier tools**.
 
-🧭 2. Inspiration from Enterprise Requirements
+It unifies **five critical security domains** — `ZTNA`, `CNAPP`, `DSPM`, `CDP`, and `XDR/UEBA` — into a single, integrated ecosystem.
 
-The initial inspiration came from a real-world enterprise brief (Getir 2025) that outlined the need for a Next-Generation AI-Driven Security & Operations Platform.
-Those requirements were reinterpreted as the following research goals for Aether:
+Each subsystem was designed, implemented, and validated in a controlled lab environment to replicate **production-grade security** functions without proprietary software.
 
-Original Requirement	Reframed Research Objective
-XDR & Insider Risk Management	Build an open-source detection and response system with UEBA and automation (Elastic + Tines).
-SASE / ZTNA Architecture	Enforce identity-aware, TLS-secured access using Keycloak + Pomerium + pfSense/Suricata.
-CNAPP for Cloud-Native Workloads	Protect the container lifecycle with Falco, Kyverno, Trivy, Cosign, Checkov, ELK.
-AI-Driven Customer Data Platform	Simulate customer engagement and churn prediction via PostgreSQL, Python, Mailgun, ELK.
-Data Security Posture Management	Discover, classify, and remediate sensitive data with MinIO, NiFi, Presidio, Custodian.
+---
 
-Rather than fulfilling a commercial contract, the aim was to prototype these enterprise-class capabilities through self-driven design and experimentation.
+## 🎯 Project Vision
 
-⚙️ 3. Approach & Methodology
+> *“Project Horizon represents my personal vision of unifying open-source security tools into a self-sustaining, AI-ready Zero Trust platform.”*
 
-The project followed a solution-oriented, phased methodology:
+The project aims to build a **modular**, **transparent**, and **scalable** Zero Trust ecosystem capable of:
 
-Modular Design First: Each pillar (ZTNA, CNAPP, DSPM, CDP, XDR) was built independently in a controlled lab VM environment.
+- 🔒 Enforcing **identity-aware access** for every request  
+- 👁️ Providing **continuous visibility and detection** across workloads, networks, and data flows  
+- ⚙️ Enabling **policy-driven governance** for data, identity, and infrastructure  
+- 💡 Proving that open-source can achieve **enterprise-grade security outcomes**
 
-Open-Source Toolchain: Every component was chosen from the open-source ecosystem to ensure transparency and reproducibility.
+---
 
-Iterative Integration: Once validated, all modules were unified under a centralized ELK telemetry layer.
+## 🧩 Research Inspiration
 
-Detection Engineering: Correlation and rule creation were performed in Elastic SIEM with enrichment and automated response through Tines.
+The initiative originated from enterprise Zero Trust modernization requirements.  
+Rather than building a vendor solution, **Horizon** reimagines those needs through open-source implementations.
 
-Documentation & Evidence: Each module was fully documented with configurations, dashboards, and technical reports.
+| **Enterprise Challenge** | **Horizon Implementation** |
+|---------------------------|-----------------------------|
+| Unified Zero Trust & Secure Access | **Keycloak (IdP)** + **Pomerium (ZTNA Proxy)** + **pfSense / Suricata (Network Enforcement)** |
+| Cloud-Native Security & Runtime Visibility | **Falco**, **Kyverno**, **Trivy**, **Checkov**, **Cosign** on **K3s cluster** |
+| Data Security & Compliance Automation | **MinIO**, **NiFi**, **Presidio**, **Cloud Custodian** |
+| Customer Intelligence & Campaign Orchestration | **PostgreSQL**, **Python**, **Mailgun**, **ELK Stack** |
+| Extended Detection & Automated Response | **Elastic Stack**, **UEBA (Isolation Forest)**, **Tines SOAR** |
 
-This approach ensured that every subsystem could stand alone yet contribute to a cohesive Zero Trust ecosystem.
+---
 
-🧩 4. Solution Architecture
-4.1 Zero Trust Network Access (ZTNA)
+## ⚙️ Implementation Highlights
 
-Tools: Keycloak (IdP), Pomerium (reverse proxy), pfSense + Suricata (IDS/IPS)
+### 🔐 Zero Trust Network Access (ZTNA)
+- Identity federation via **Keycloak (OIDC)** and **Pomerium** policy enforcement  
+- Full **TLS pipeline** with inspection through **pfSense + Suricata**  
+- Centralized authentication telemetry in **ELK Stack** for behavioral visibility  
 
-Outcome: Identity-based, TLS-secured application access with full authentication telemetry in ELK.
+### ☁️ Cloud-Native Application Protection (CNAPP)
+- Automated IaC scanning with **Checkov**, image signing via **Cosign**, and runtime detection using **Falco**  
+- **Kyverno** enforces Kubernetes policies; **Trivy** manages vulnerability tracking  
+- Dashboards display vulnerabilities, policy violations, and runtime anomalies  
 
-4.2 Cloud-Native Application Protection Platform (CNAPP)
+### 🔎 Data Security Posture Management (DSPM)
+- Sensitive data discovery using **Presidio** and ingestion through **NiFi**  
+- Automated remediation via **Cloud Custodian** on **MinIO** buckets  
+- Compliance dashboards visualize entity exposure and trend analytics  
 
-Tools: Checkov, Trivy, Cosign, Kyverno, Falco, Falcosidekick, ELK
+### 📊 Customer Data Platform (CDP)
+- Synthetic behavior simulation with **Python microservices** and **PostgreSQL**  
+- Churn scoring and campaign automation using **Mailgun SMTP**  
+- **ELK dashboards** provide insights into engagement and churn metrics  
 
-Outcome: Secured the container lifecycle — IaC scan → image sign → runtime detect → log visualize.
+### 🧠 XDR & Insider Risk (UEBA + SOAR)
+- Unified telemetry from all modules in **Elastic SIEM**  
+- Custom **UEBA engine** using *Isolation Forest* for SSH anomaly detection  
+- **Tines automation workflows** for enrichment, alerting, and host isolation  
 
-4.3 Data Security Posture Management (DSPM)
+---
 
-Tools: MinIO, Apache NiFi, Microsoft Presidio, Cloud Custodian, PostgreSQL, ELK
+## 🏆 Key Achievements
 
-Outcome: Sensitive-data discovery, automatic remediation of exposed buckets, compliance dashboards.
+✅ End-to-end **Zero Trust access validation** (Keycloak → Pomerium → Application)  
+✅ Complete **container security chain** (IaC → Build → Runtime → Detect)  
+✅ **Sensitive data discovery** and **automated remediation** with Custodian  
+✅ Simulated **data analytics pipeline** for engagement insights  
+✅ **Cross-domain detection engineering** in Elastic SIEM with UEBA scoring  
+✅ **SOAR automation** reducing manual SOC intervention time  
 
-4.4 Customer Data Platform (CDP)
+---
 
-Tools: PostgreSQL, Python services, Mailgun SMTP, ELK
+## 📈 Research Outcomes
 
-Outcome: Synthetic user-activity simulation, churn-risk scoring, alert-driven campaigns, full observability.
+| **Dimension** | **Result** |
+|----------------|------------|
+| **Architecture** | Unified Zero Trust prototype spanning five core security domains |
+| **Scalability** | Modular, tool-agnostic, extensible design validated in multi-VM lab |
+| **Visibility** | 100% log integration into Elastic Stack; dashboards for every module |
+| **Automation** | Real-time enrichment and containment via Tines workflows |
+| **Learning Value** | Deep hands-on expertise in DevSecOps, detection engineering, and SOAR |
 
-4.5 Extended Detection & Response (XDR + Insider Risk)
+---
 
-Tools: Elastic Stack, Suricata, Pomerium, DSPM feeds, UEBA (Isolation Forest), Tines
+## 🚀 Future Enhancements
 
-Outcome: Centralized telemetry, rule-based detections, ML-driven SSH anomaly detection, automated response.
+- Transition to **multi-node Kubernetes** deployment with CI/CD integration  
+- Expand **policy coverage** for RBAC, PSP, and data residency  
+- Implement **cross-source correlation** for dynamic risk scoring  
+- Integrate **Azure AD / Okta federation** for enterprise identity management  
+- Extend **UEBA** to SaaS, email, and privileged activity analytics  
+- Publish as a **technical whitepaper** on open-source Zero Trust frameworks  
 
-🚀 5. Implementation Highlights
+---
 
-End-to-end Zero Trust access flow validated via Keycloak → Pomerium → Application with ELK visibility.
+## 🧰 Technology Stack
 
-CNAPP successfully blocked unsigned images and detected runtime intrusions on K3s.
+`Keycloak` • `Pomerium` • `pfSense` • `Suricata` • `Falco` • `Kyverno` • `Trivy` • `Checkov` • `Cosign`  
+`MinIO` • `NiFi` • `Presidio` • `Cloud Custodian` • `PostgreSQL` • `Mailgun` • `Elastic Stack` • `Tines`
 
-DSPM pipeline achieved automated policy remediation and real-time entity classification.
+---
 
-CDP pipeline executed churn scoring → alert → campaign → dashboard cycle using synthetic data.
+## 🧑‍💻 Author
 
-XDR / UEBA correlated events across all layers and triggered Tines playbooks for enrichment and host isolation.
+**Yogendra Jain**  
+Cybersecurity Analyst & Researcher — Zero Trust, SOC, and Threat Detection Engineering  
 
-Unified Kibana dashboards provided full visibility and cross-domain correlation.
+---
 
-Each subsystem was independently deployed, integrated, and validated within a controlled, single-node lab setup.
+## ⭐ Support the Project
 
-🧠 6. Outcomes & Learnings
+If you find this project insightful or useful, please consider:
+- 🌟 Starring the repository  
+- 🧩 Contributing to future research modules  
+- 🗣️ Sharing feedback or feature ideas  
 
-Demonstrated a fully functional Zero Trust prototype using 100 % open-source components.
+---
 
-Proved that enterprise-grade detection and response can be achieved through modular integration.
-
-Built a scalable architecture blueprint adaptable to any cloud or hybrid environment.
-
-Strengthened personal expertise in DevSecOps, SOC engineering, data protection, and automation.
-
-🔮 7. Future Roadmap
-
-Scale to Kubernetes Clusters: Introduce multi-node clustering and CI/CD automation.
-
-Enhance Policy Depth: Expand Kyverno and Custodian rules for RBAC and governance.
-
-Advanced Correlation: Implement cross-source risk scoring and threat graph analytics.
-
-Identity Federation: Integrate Azure AD / Okta for production-grade SSO and MFA.
-
-Expanded UEBA: Extend anomaly detection beyond SSH to email and SaaS usage.
-
-Research Publication: Convert findings into a whitepaper on “Open-Source Zero Trust Security Architectures.”
-
-⚖️ 8. Disclosure & Acknowledgment
-
-This repository presents Project Aether as a personal open-source research project.
-While the initial concept was inspired by a corporate problem statement, all design decisions, implementations, and documentation were developed independently using publicly available open-source resources.
-No proprietary code, data, or confidential information is included.
+> *“Security is not about products — it’s about principles, discipline, and visibility.”*
