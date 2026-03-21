@@ -111,12 +111,6 @@ Rather than building a vendor solution, **Horizon** reimagines those needs throu
 
 ---
 
-## 🧑‍💻 Author
-
-**Yogendra Jain**  
-Cybersecurity Analyst & Researcher — Zero Trust, SOC, and Threat Detection Engineering  
-
----
 
 ## ⭐ Support the Project
 
